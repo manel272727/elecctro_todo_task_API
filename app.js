@@ -1,7 +1,11 @@
 const Hapi = require('@hapi/hapi');
 const Joi = require('@hapi/joi');
 const bcrypt = require('bcrypt');
+const Inert = require('@hapi/inert');
+const Vision = require('@hapi/vision');
+const HapiSwagger = require('hapi-swagger');
 const { Client } = require('pg');
+
 
 
 const client = new Client({
@@ -28,6 +32,24 @@ const init = async () => {
         },
       },
   });
+
+
+  const swaggerOptions = {
+    info: {
+      title: 'API Documentation',
+      version: '1.0.0',
+    },
+  };
+
+  await server.register([
+    Inert,
+    Vision,
+    {
+      plugin: HapiSwagger,
+      options: swaggerOptions,
+    },
+  ]);
+
 
 
   server.route({
