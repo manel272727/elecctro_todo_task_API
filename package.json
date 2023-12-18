@@ -18,7 +18,8 @@
     "bcrypt": "^5.1.1",
     "hapi": "^18.1.0",
     "hapi-cors-headers": "^1.0.3",
-    "hapi-swagger": "^17.2.0"
+    "hapi-swagger": "^17.2.0",
+    "jsonwebtoken": "^9.0.2"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
