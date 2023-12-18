@@ -348,7 +348,7 @@ server.route({
           const passwordMatch = await bcrypt.compare(password, hashedPassword);
 
           if (passwordMatch) {
-            const token = jwt.sign({ email }, JWT_SECRET_KEY, { expiresIn: '1h' }); // Token expires in 1 hour
+            const token = jwt.sign({ email }, JWT_SECRET_KEY, { expiresIn: '1h' }); 
 
             return h.response({ token }).code(200);
           } else {
